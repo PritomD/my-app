@@ -60,6 +60,8 @@ jobs:
 
             git pull
 
+            cd /var/www/html/build
+
             npm i
 
             npm run build --if-present
