@@ -60,7 +60,7 @@ jobs:
 
             git pull
 
-            cd /var/www/html/build
+            cd /var/www/html
 
             npm i
 
