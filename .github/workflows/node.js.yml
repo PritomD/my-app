@@ -33,37 +33,17 @@ jobs:
   deploy:
 
     needs: build
-
+    
     runs-on: ubuntu-latest
-   
     steps:
+    - uses: actions/checkout@v2
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@5.1
+      with:
+        switches: -avzr --delete
+        path: build/
+        remote_path: /var/www/html/my-app
+        remote_host: http://ec2-54-255-247-179.ap-southeast-1.compute.amazonaws.com/
+        remote_user: ubuntu
+        remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Checkout
-
-        uses: actions/checkout@v2
-
-      - name: Deployment
-
-        uses: appleboy/ssh-action@master
-
-        with:
-
-          host: ${{ secrets.SSH_HOST }}
-
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-          username: ${{ secrets.SSH_USERNAME }}
-
-          script: |
-
-            cd /var/www/html/my-app
-
-            sudo cp -R /var/www/html/my-app/build/* /var/www/html/my-app
-
-            # git checkout -f 
-
-            # git pull
-
-            # npm i
-
-            # npm run build --if-present
