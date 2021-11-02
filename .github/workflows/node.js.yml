@@ -27,34 +27,34 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Build
+#     - name: Build
 
-      uses: appleboy/ssh-action@master
+#       uses: appleboy/ssh-action@master
 
-      with:
+#       with:
 
-          host: ${{ secrets.SSH_HOST }}
+#           host: ${{ secrets.SSH_HOST }}
 
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          username: ${{ secrets.SSH_USERNAME }}
+#           username: ${{ secrets.SSH_USERNAME }}
 
-          script: |
+#           script: |
 
-            cd /var/www/html/my-app
+#             cd /var/www/html/my-app
 
-            git checkout -f 
+#             git checkout -f 
 
-            git pull
+#             git pull
 
-            npm i
+#             npm i
 
-            npm run build --if-present
+#             npm run build --if-present
 
-    # - name: Install Packages
-    # - run: npm i
-    # - run: npm run build --if-present
-    # - run: npm test
+    - name: Install Packages
+    - run: npm i
+    - run: npm run build --if-present
+    - run: npm test
   
   deploy:
 
