@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "my-app/",
+  "homepage": "http://ec2-54-255-247-179.ap-southeast-1.compute.amazonaws.com/build_test/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
