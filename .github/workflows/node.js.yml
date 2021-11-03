@@ -28,8 +28,8 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+      working-directory: /github/workspace/my-app
     - run: npm test
-      working-directory: /github/workspace
   
   deploy:
     needs: build
