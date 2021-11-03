@@ -44,6 +44,7 @@ jobs:
           local_dir: "public/"
           remote_dir: "/var/www/html/my-app"
         run: |
+          cd client
           npm install
           npm run build
           mkdir ~/.ssh
