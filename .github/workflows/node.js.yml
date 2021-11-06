@@ -56,16 +56,16 @@ jobs:
 #           rsync -avzr --delete -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
     
     steps:
-#     - uses: actions/checkout@v2
-#     - name: Get artifact
-#       uses: actions/download-artifact@v1
-#       with:
-#           name: react-github-actions-build
+    - uses: actions/checkout@v2
+    - name: Get artifact
+      uses: actions/download-artifact@v1
+      with:
+          name: react-github-actions-build
     - name: rsync deployments
       uses: burnett01/rsync-deployments@5.1
       with:
         switches: -avzr --exclude=".git" --exclude=".github"
-        path: /home/runner/work/my-app/my-app
+        path: home/runner/work/my-app/my-app
         remote_path: /var/www/html/my-app
         remote_host: ec2-54-255-247-179.ap-southeast-1.compute.amazonaws.com
         remote_user: ubuntu
