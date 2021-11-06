@@ -65,7 +65,7 @@ jobs:
       with:
         switches: -avzr --exclude=".git" --exclude=".github"
         path: react-github-actions-build/
-        remote_path: /var/www/html/my-app/build
+        remote_path: /var/www/html/react-app
         remote_host: ec2-54-255-247-179.ap-southeast-1.compute.amazonaws.com
         remote_user: ubuntu
         remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
