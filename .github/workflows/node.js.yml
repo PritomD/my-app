@@ -65,7 +65,7 @@ jobs:
       uses: burnett01/rsync-deployments@5.1
       with:
         switches: -avzr --delete --exclude=".git" --exclude=".github"
-        path: react-github-actions-build
+        path: react-github-actions-build/
         remote_path: /var/www/html/my-app
         remote_host: ec2-54-255-247-179.ap-southeast-1.compute.amazonaws.com
         remote_user: ubuntu
