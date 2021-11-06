@@ -30,6 +30,11 @@ jobs:
     - run: npm run build --if-present
       working-directory: /github/workspace/my-app
     - run: npm test
+    
+    - name: Generate
+      uses: skx/github-action-build@master
+      with:
+        builder: .github/build
   
   deploy:
     needs: build
